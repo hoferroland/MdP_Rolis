@@ -1,0 +1,35 @@
+README-Datei für das MdP-Fallstudie-Projekt von
+Roland Hofer und Christian Blättler
+===============================================
+Projektbeschreibung:
+todo
+
+Tools:
+- git
+- maven
+- eclipse mit java 1.7
+
+
+
+GitRepository:
+hoferroland/MdP_Rolis
+
+Einbindung von Libraries mittels xml-Eintrag ins POM
+
+
+
+
+Koordinaten der Projektmitglieder:
+Roland Hofer
+Oberfeldstrasse 138
+8408 Winterthur
+hofer.roland@bluewin.ch
+roland.hofer@sbb.ch
+079 334 04 15
+
+Christian Blättler
+Untere Hofmattstrasse 19
+4312 Magden
+chrispero@gmx.ch
+blaetchr@students.zhaw.ch
+079 397 62 53
