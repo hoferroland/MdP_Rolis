@@ -1,6 +1,23 @@
 README-Datei für das MdP-Fallstudie-Projekt von
 Roland Hofer und Christian Blättler
 ===============================================
+Projektbeschreibung:
+todo
+
+Tools:
+- git
+- maven
+- eclipse mit java 1.7
+
+
+
+GitRepository:
+hoferroland/MdP_Rolis
+
+Einbindung von Libraries mittels xml-Eintrag ins POM
+
+
+
 
 Koordinaten:
 Roland Hofer
