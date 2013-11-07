@@ -44,7 +44,7 @@ public class EventErfassenTest {
 		testObject.clearService();
 		assertEquals(testObject.getService(), "");
 		assertEquals(testObject.getEntertainment(), "View");		
-
+// kommentar 
 	}
 
 }
