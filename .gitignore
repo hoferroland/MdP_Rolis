@@ -11,3 +11,4 @@ nbproject
 *.ipr
 *.iws
 .idea
+/bin

@@ -39,7 +39,7 @@
 		<servlet-name>default</servlet-name>
 		<url-pattern>*.jpg</url-pattern>
 	</servlet-mapping>
-	
+
 	<servlet>
 		<servlet-name>ErraiServlet</servlet-name>
 		<servlet-class>org.jboss.errai.bus.server.servlet.DefaultBlockingServlet</servlet-class>

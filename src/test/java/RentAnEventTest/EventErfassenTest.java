@@ -1,4 +1,4 @@
-package RentAnEvent;
+package RentAnEventTest;
 
 import static org.junit.Assert.*;
 
