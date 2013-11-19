@@ -3,7 +3,7 @@ package rentAnEvent;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class SupportErfassen {
+public class ServiceErfassen {
 
 	private String sService;
 	private Scanner scanner = new Scanner(System.in);
