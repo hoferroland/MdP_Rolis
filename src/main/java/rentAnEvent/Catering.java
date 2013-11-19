@@ -1,35 +1,43 @@
 package rentAnEvent;
 
-public class Location implements Service {
-	
+public class Catering implements Service {
+
 	// Pflichtangaben
-	private int iPLZ;
-	private String sOrt;
-	private String sStrasse;
-	private int iHausnummer;
+	private String[] asKueche;
+	private int iServicepersonal;
 	private String sBezeichnung;
 	private String sAnbieter;
 	private String sDatum;
 	private double dKosten;
 	private double dDauer;
 	// Zusätzliche Angaben
+	private int iPLZ;
+	private String sOrt;
+	private String sStrasse;
+	private int iHausnummer;
 	private String sWebseite;
 	private String sBuchungsfrist;
 	private String sAbsagebedingungen;
 	private String sTelefon;
 	private String sEmail;
-	private String sZusatz;
+	private String sZusatz;	
 	
-	public Location(String sBezeichnung, int iPLZ, String sOrt, String sStrasse, int iHausnummer, String sAnbieter, String sDatum, double dKosten, double dDauer) {
+	public Catering(String sBezeichnung, String sAnbieter, String sDatum, double dKosten, double dDauer, String[] asKueche, int iServicepersonal) {
 		this.setBezeichnung(sBezeichnung);
-		this.setPLZ(iPLZ);
-		this.setOrt(sOrt);
-		this.setStrasse(sStrasse);
-		this.setHausnummer(iHausnummer);
 		this.setAnbieter(sAnbieter);
 		this.setDatum(sDatum);
 		this.setKosten(dKosten);
 		this.setDauer(dDauer);
+		this.setKueche(asKueche);
+		this.setServicepersonal(iServicepersonal);
+	}
+	
+	public String[] getKueche() {
+		return this.asKueche;
+	}
+	
+	public int getServicepersonal() {
+		return this.iServicepersonal;
 	}
 	
 	public int getPLZ() {
@@ -95,6 +103,18 @@ public class Location implements Service {
 	
 	public String getZusatz() {
 		return this.sZusatz;
+	}
+	
+	public void setKueche(String[] asKueche) {
+		// to do: Überprüfung der Eingabe
+		// ...
+		this.asKueche = asKueche;
+	}
+	
+	public void setServicepersonal(int iServicepersonal) {
+		// to do: Überprüfung der Eingabe
+		// ...
+		this.iServicepersonal = iServicepersonal;
 	}
 	
 	public void setPLZ(int iPLZ) {
