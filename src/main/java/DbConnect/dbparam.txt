@@ -1,0 +1,4 @@
+driver=org.hsqldb.jdbc.JDBCDriver
+url=jdbc:hsqldb:file:D:/DbConnect/P_EventDB; shutdown=true
+user=Event
+password=Event
