@@ -6,16 +6,16 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import rentAnEvent.SupportErfassen;
+import rentAnEvent.ServiceErfassen;
 
 public class ServiceErfassenTest {
 
-	private SupportErfassen mySupportErfassen = new SupportErfassen();
+	private ServiceErfassen myServiceErfassen = new ServiceErfassen();
 	
 	@Test
 	public void testLocationErfasst() {
-		mySupportErfassen.chooseService();
-		assertNotNull(mySupportErfassen);
+		myServiceErfassen.chooseService();
+		assertNotNull(myServiceErfassen);
 	}
 	
 	// eventuell weitere Tests mit Objekt (da nicht automatisierbar, sinnvoll?
