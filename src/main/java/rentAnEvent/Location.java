@@ -31,6 +31,10 @@ public class Location implements Service {
 		this.setKosten(dKosten);
 		this.setDauer(dDauer);
 	}
+	public Location() {
+		
+	}
+	
 	
 	public int getPLZ() {
 		return this.iPLZ;
