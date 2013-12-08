@@ -1,5 +1,7 @@
 package DbConnect;
 
+import DienstleistungVerw.Catering;
+import DienstleistungVerw.Entertainment;
 import DienstleistungVerw.Location;
 
 public interface IEventSQLHandler {
@@ -13,6 +15,9 @@ public interface IEventSQLHandler {
 	public String getInsert();
 
 	public void insertLocation(Location location) throws EventException;
-	// public void update();
-	// public void delete();
+
+	public void insertCatering(Catering catering) throws EventException;
+
+	public void insertEntertainment(Entertainment entertainment)
+			throws EventException;
 }
