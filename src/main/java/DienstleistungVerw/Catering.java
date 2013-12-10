@@ -3,11 +3,11 @@ package DienstleistungVerw;
 public class Catering extends DienstleistungDescriptionDekorierer {
 
 	// Pflichtangaben
-	private String[] asKueche;
+	private String sKueche;
 	private int iServicepersonal;
-	private String sDatum;
+	// private String sDatum;
 	private double dKosten;
-	private double dDauer;
+	// private double dDauer;
 	// Zusätzliche Angaben
 	private int iPLZ;
 	private String sOrt;
@@ -20,20 +20,30 @@ public class Catering extends DienstleistungDescriptionDekorierer {
 	private String sEmail;
 	private String sZusatz;
 
-	public Catering(String sBezeichnung, String sAnbieter, String sDatum,
-			double dKosten, double dDauer, String[] asKueche,
-			int iServicepersonal) {
+	public Catering(String sBezeichnung, String sAnbieter, double dKosten,
+			String sKueche, int iServicepersonal, int iPLZ, String sStrasse,
+			int iHausnummer, String sOrt, String sWebseite,
+			String sBuchungsfrist, String sAbsagebedingungen, String sTelefon,
+			String sEmail, String sZusatz) {
 		super(sBezeichnung, sAnbieter);
 
-		this.setDatum(sDatum);
 		this.setKosten(dKosten);
-		this.setDauer(dDauer);
-		this.setKueche(asKueche);
+		this.setKueche(sKueche);
 		this.setServicepersonal(iServicepersonal);
+		this.setPLZ(iPLZ);
+		this.setStrasse(sStrasse);
+		this.setHausnummer(iHausnummer);
+		this.setOrt(sOrt);
+		this.setWebseite(sWebseite);
+		this.setBuchungsfrist(sBuchungsfrist);
+		this.setAbsagebedingungen(sAbsagebedingungen);
+		this.setTelefon(sTelefon);
+		this.setEmail(sEmail);
+		this.setZusatz(sZusatz);
 	}
 
-	public String[] getKueche() {
-		return this.asKueche;
+	public String getKueche() {
+		return this.sKueche;
 	}
 
 	public int getServicepersonal() {
@@ -56,16 +66,8 @@ public class Catering extends DienstleistungDescriptionDekorierer {
 		return this.iHausnummer;
 	}
 
-	public String getDatum() {
-		return this.sDatum;
-	}
-
 	public double getKosten() {
 		return this.dKosten;
-	}
-
-	public double getDauer() {
-		return this.dDauer;
 	}
 
 	public String getBuchungsfrist() {
@@ -76,10 +78,10 @@ public class Catering extends DienstleistungDescriptionDekorierer {
 		return this.sAbsagebedingungen;
 	}
 
-	public void setKueche(String[] asKueche) {
+	public void setKueche(String sKueche) {
 		// to do: Überprüfung der Eingabe
 		// ...
-		this.asKueche = asKueche;
+		this.sKueche = sKueche;
 	}
 
 	public void setServicepersonal(int iServicepersonal) {
@@ -112,22 +114,10 @@ public class Catering extends DienstleistungDescriptionDekorierer {
 		this.iHausnummer = iHausnummer;
 	}
 
-	public void setDatum(String sDatum) {
-		// to do: Überprüfung der Eingabe
-		// ...
-		this.sDatum = sDatum;
-	}
-
 	public void setKosten(double dKosten) {
 		// to do: Überprüfung der Eingabe
 		// ...
 		this.dKosten = dKosten;
-	}
-
-	public void setDauer(double dDauer) {
-		// to do: Überprüfung der Eingabe
-		// ...
-		this.dDauer = dDauer;
 	}
 
 	public void setWebseite(String sWebseite) {

@@ -3,11 +3,11 @@ package DienstleistungVerw;
 public class Entertainment extends DienstleistungDescriptionDekorierer {
 
 	// Pflichtangaben
-	private String[] asUnterhaltungsart;
+	private String sUnterhaltungsart;
 	private int iAnzahlUnterhalter;
-	private String sDatum;
+	// private String sDatum;
 	private double dKosten;
-	private double dDauer;
+	// private double dDauer;
 	// Zusätzliche Angaben
 	private int iPLZ;
 	private String sOrt;
@@ -20,20 +20,20 @@ public class Entertainment extends DienstleistungDescriptionDekorierer {
 	private String sEmail;
 	private String sZusatz;
 
-	public Entertainment(String sBezeichnung, String sAnbieter, String sDatum,
-			double dKosten, double dDauer, String[] asUnterhaltungsart,
-			int iAnzahlUnterhalter) {
+	public Entertainment(String sBezeichnung, String sAnbieter, double dKosten,
+			String sUnterhaltungsart, int iAnzahlUnterhalter, int iPLZ,
+			String sOrt, String sStrasse, int iHausnummer, String sWebseite,
+			String sBuchungsfrist, String sAbsagebedingungen, String sTelefon,
+			String sEmail, String sZusatz) {
 		super(sBezeichnung, sAnbieter);
 
-		this.setDatum(sDatum);
 		this.setKosten(dKosten);
-		this.setDauer(dDauer);
-		this.setUnterhaltungsart(asUnterhaltungsart);
+		this.setUnterhaltungsart(sUnterhaltungsart);
 		this.setAnzahlUnterhalter(iAnzahlUnterhalter);
 	}
 
-	public String[] getUnterhaltungsart() {
-		return this.asUnterhaltungsart;
+	public String getUnterhaltungsart() {
+		return this.sUnterhaltungsart;
 	}
 
 	public int getAnzahlUnterhalter() {
@@ -56,16 +56,8 @@ public class Entertainment extends DienstleistungDescriptionDekorierer {
 		return this.iHausnummer;
 	}
 
-	public String getDatum() {
-		return this.sDatum;
-	}
-
 	public double getKosten() {
 		return this.dKosten;
-	}
-
-	public double getDauer() {
-		return this.dDauer;
 	}
 
 	public String getBuchungsfrist() {
@@ -76,10 +68,10 @@ public class Entertainment extends DienstleistungDescriptionDekorierer {
 		return this.sAbsagebedingungen;
 	}
 
-	public void setUnterhaltungsart(String[] asUnterhaltungsart) {
+	public void setUnterhaltungsart(String sUnterhaltungsart) {
 		// to do: Überprüfung der Eingabe
 		// ...
-		this.asUnterhaltungsart = asUnterhaltungsart;
+		this.sUnterhaltungsart = sUnterhaltungsart;
 	}
 
 	public void setAnzahlUnterhalter(int iAnzahlUnterhalter) {
@@ -112,22 +104,10 @@ public class Entertainment extends DienstleistungDescriptionDekorierer {
 		this.iHausnummer = iHausnummer;
 	}
 
-	public void setDatum(String sDatum) {
-		// to do: Überprüfung der Eingabe
-		// ...
-		this.sDatum = sDatum;
-	}
-
 	public void setKosten(double dKosten) {
 		// to do: Überprüfung der Eingabe
 		// ...
 		this.dKosten = dKosten;
-	}
-
-	public void setDauer(double dDauer) {
-		// to do: Überprüfung der Eingabe
-		// ...
-		this.dDauer = dDauer;
 	}
 
 	public void setWebseite(String sWebseite) {
