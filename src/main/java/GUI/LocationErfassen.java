@@ -43,8 +43,20 @@ public class LocationErfassen extends JFrame {
 	int iNr;
 	int iPLZ;
 	String stOrt = "";
+	String stWebseite = "";
+	String stBuchungsfrist = "";
+	String stAbsagebed = "";
+	String stTelefon = "";
+	String stEmail = "";
+	String stZusatz = "";
 
 	private final ILocationHandler locationHandler;
+	private JTextField textLocationWebseite;
+	private JTextField textLocationBuchungsfrist;
+	private JTextField textLocationAbsagebedingungen;
+	private JTextField textLocationTelefon;
+	private JTextField textLocationEmail;
+	private JTextField textLocationZusatz;
 
 	/**
 	 * Launch the application.
@@ -154,7 +166,9 @@ public class LocationErfassen extends JFrame {
 
 				if (allValid) {
 					final Location location = new Location(stBezeichnung,
-							stAnbieter, iPLZ, stOrt, stStrasse, iNr);
+							stAnbieter, iPLZ, stOrt, stStrasse, iNr,
+							stWebseite, stBuchungsfrist, stAbsagebed,
+							stTelefon, stEmail, stZusatz);
 
 					// neuer Service (save....)
 					// Nur zu Debugzwecken..
@@ -211,6 +225,60 @@ public class LocationErfassen extends JFrame {
 		lblDauer.setBounds(20, 323, 46, 14);
 		contentPane.add(lblDauer);
 
+		textLocationWebseite = new JTextField();
+		textLocationWebseite.setBounds(469, 36, 151, 20);
+		contentPane.add(textLocationWebseite);
+		textLocationWebseite.setColumns(60);
+
+		JLabel lblWebseite = new JLabel("Webseite:");
+		lblWebseite.setBounds(362, 39, 76, 14);
+		contentPane.add(lblWebseite);
+
+		textLocationBuchungsfrist = new JTextField();
+		textLocationBuchungsfrist.setBounds(469, 67, 96, 20);
+		contentPane.add(textLocationBuchungsfrist);
+		textLocationBuchungsfrist.setColumns(25);
+
+		JLabel lblBuchungsfrist = new JLabel("Buchungsfrist:");
+		lblBuchungsfrist.setBounds(362, 70, 76, 14);
+		contentPane.add(lblBuchungsfrist);
+
+		textLocationAbsagebedingungen = new JTextField();
+		textLocationAbsagebedingungen.setBounds(469, 98, 151, 79);
+		contentPane.add(textLocationAbsagebedingungen);
+		textLocationAbsagebedingungen.setColumns(100);
+
+		JLabel lblAbsagebedingungen = new JLabel("Absagebedingungen:");
+		lblAbsagebedingungen.setBounds(362, 101, 103, 14);
+		contentPane.add(lblAbsagebedingungen);
+
+		textLocationTelefon = new JTextField();
+		textLocationTelefon.setBounds(469, 227, 96, 20);
+		contentPane.add(textLocationTelefon);
+		textLocationTelefon.setColumns(20);
+
+		JLabel lblTelefon = new JLabel("Telefon:");
+		lblTelefon.setBounds(362, 230, 46, 14);
+		contentPane.add(lblTelefon);
+
+		textLocationEmail = new JTextField();
+		textLocationEmail.setBounds(469, 258, 86, 20);
+		contentPane.add(textLocationEmail);
+		textLocationEmail.setColumns(10);
+
+		JLabel lblEmail = new JLabel("E-Mail:");
+		lblEmail.setBounds(362, 261, 46, 14);
+		contentPane.add(lblEmail);
+
+		textLocationZusatz = new JTextField();
+		textLocationZusatz.setBounds(469, 289, 151, 137);
+		contentPane.add(textLocationZusatz);
+		textLocationZusatz.setColumns(250);
+
+		JLabel lblZusatz = new JLabel("Zus\u00E4tzliche Angaben:");
+		lblZusatz.setBounds(362, 292, 110, 14);
+		contentPane.add(lblZusatz);
+
 	}
 
 	// Führende und nachfolgende Leerzeichen abschneiden (um Fehleingaben zu
@@ -227,31 +295,12 @@ public class LocationErfassen extends JFrame {
 		iPLZ = Integer.valueOf(stPLZ);
 		stOrt = textLocationOrt.getText().trim();
 		stAnbieter = textLocationAnbieter.getText().trim();
+		stWebseite = textLocationWebseite.getText().trim();
+		stBuchungsfrist = textLocationBuchungsfrist.getText().trim();
+		stAbsagebed = textLocationAbsagebedingungen.getText().trim();
+		stTelefon = textLocationTelefon.getText().trim();
+		stEmail = textLocationEmail.getText().trim();
+		stZusatz = textLocationZusatz.getText().trim();
 
 	}
-	/*
-	 * // Feldprüfungen private boolean inputIsValid() { boolean ok = true;
-	 * String msg = "";
-	 * 
-	 * if (txtLocationBezeichnung.getText().length() == 0) { ok = false; msg +=
-	 * "Location - Bezeichnung fehlt\n"; }
-	 * 
-	 * if (textLocationStrasse.getText().length() == 0) { ok = false; msg +=
-	 * "Location - Strasse fehlt\n"; }
-	 * 
-	 * if (textLocationNr.getText().length() == 0) { ok = false; msg +=
-	 * "Location - Hausnummer fehlt\n"; }
-	 * 
-	 * if (textLocationPLZ.getText().length() == 0) { ok = false; msg +=
-	 * "Location - Postleitzahl fehlt\n"; }
-	 * 
-	 * if (textBezeichnungOrt.getText().length() == 0) { ok = false; msg +=
-	 * "Location - Ortsangabe fehlt\n"; }
-	 * 
-	 * if (textLocationAnbieter.getText().length() == 0) { ok = false; msg +=
-	 * "Location - Name des Anbieters fehlt\n"; }
-	 * 
-	 * if (!ok) JOptionPane.showMessageDialog(contentPane, msg, "Fehler",
-	 * JOptionPane.ERROR_MESSAGE); return ok; }
-	 */
 }

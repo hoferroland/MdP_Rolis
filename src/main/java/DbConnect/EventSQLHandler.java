@@ -15,8 +15,40 @@ public class EventSQLHandler implements IEventSQLHandler {
 	@Override
 	public void insertLocation(Location location) throws EventException {
 		try {
-			String query = "insert into tbl_location (txt_LocName)"
-					+ "values (" + "'" + location.getBezeichnung() + "')";
+			String query = "insert into tbl_location (txt_LocName, txt_LocAnbieter, txt_LocPLZ, txt_LocOrt, txt_LocStrasse, txt_LocHausnummer, txt_LocWebseite, txt_LocBuchungsfrist, txt_LocAbsagebed, txt_LocTelefon, txt_LocEmail, txt_LocZusatz)"
+					+ "values (" + "'"
+					+ location.getBezeichnung()
+					+ "',"
+					+ "'"
+					+ location.getAnbieter()
+					+ "',"
+					+ "'"
+					+ location.getPLZ()
+					+ "',"
+					+ "'"
+					+ location.getOrt()
+					+ "',"
+					+ "'"
+					+ location.getStrasse()
+					+ "',"
+					+ "'"
+					+ location.getHausnummer()
+					+ "',"
+					+ "'"
+					+ location.getWebseite()
+					+ "',"
+					+ "'"
+					+ location.getBuchungsfrist()
+					+ "',"
+					+ "'"
+					+ location.getAbsagebedingungen()
+					+ "',"
+					+ "'"
+					+ location.getTelefon()
+					+ "',"
+					+ "'"
+					+ location.getEmail()
+					+ "'," + "'" + location.getZusatz() + "')";
 
 			EventBroker eventBroker = EventBroker.getInstance();
 			eventBroker.insertEvent(query);

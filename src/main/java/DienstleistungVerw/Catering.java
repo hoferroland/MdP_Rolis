@@ -68,28 +68,12 @@ public class Catering extends DienstleistungDescriptionDekorierer {
 		return this.dDauer;
 	}
 
-	public String getWebseite() {
-		return this.sWebseite;
-	}
-
 	public String getBuchungsfrist() {
 		return this.sBuchungsfrist;
 	}
 
 	public String getAbsagebedingungen() {
 		return this.sAbsagebedingungen;
-	}
-
-	public String getTelefon() {
-		return this.sTelefon;
-	}
-
-	public String getEmail() {
-		return this.sEmail;
-	}
-
-	public String getZusatz() {
-		return this.sZusatz;
 	}
 
 	public void setKueche(String[] asKueche) {

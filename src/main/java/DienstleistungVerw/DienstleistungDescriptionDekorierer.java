@@ -9,6 +9,7 @@ public abstract class DienstleistungDescriptionDekorierer implements
 	private String sWebseite;
 	private String sTelefon;
 	private String sEmail;
+	private String sZusatz;
 
 	protected DienstleistungDescriptionDekorierer(String sBezeichnung,
 			String sAnbieter) {
@@ -34,6 +35,10 @@ public abstract class DienstleistungDescriptionDekorierer implements
 
 	public String getEmail() {
 		return sEmail;
+	}
+
+	public String getZusatz() {
+		return sZusatz;
 	}
 
 }
