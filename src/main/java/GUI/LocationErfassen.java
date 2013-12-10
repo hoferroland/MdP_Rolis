@@ -165,8 +165,20 @@ public class LocationErfassen extends JFrame {
 				Validation validateAnbieter = validator
 						.validateAnbieter(textLocationAnbieter.getText());
 				allValid &= validateAnbieter.isValid();
-				if (!validateBezeichnung.isValid()) {
+				if (!validateAnbieter.isValid()) {
 					validateAnbieter.getError();
+				}
+				Validation validateStrasse = validator
+						.validateStrasse(textLocationStrasse.getText());
+				allValid &= validateStrasse.isValid();
+				if (!validateStrasse.isValid()) {
+					validateStrasse.getError();
+				}
+				Validation validateOrt = validator.validateOrt(textLocationOrt
+						.getText());
+				allValid &= validateOrt.isValid();
+				if (!validateOrt.isValid()) {
+					validateOrt.getError();
 				}
 
 				if (allValid) {

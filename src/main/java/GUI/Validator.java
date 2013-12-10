@@ -72,4 +72,15 @@ public class Validator {
 		}
 		return validation;
 	}
+
+	public Validation validateOrt(String ort) {
+		Validation validation = null;
+
+		if (ort.isEmpty()) {
+			validation = new Validation(false, "Feld Ort darf nicht leer sein!");
+		} else {
+			validation = new Validation(true);
+		}
+		return validation;
+	}
 }
