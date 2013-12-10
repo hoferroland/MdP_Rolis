@@ -158,10 +158,15 @@ public class LocationErfassen extends JFrame {
 				Validation validateBezeichnung = validator
 						.validateBezeichnung(txtLocationBezeichnung.getText());
 				allValid &= validateBezeichnung.isValid();
-
 				if (!validateBezeichnung.isValid()) {
 					// fehler in gui anzeigen
 					validateBezeichnung.getError();
+				}
+				Validation validateAnbieter = validator
+						.validateAnbieter(textLocationAnbieter.getText());
+				allValid &= validateAnbieter.isValid();
+				if (!validateBezeichnung.isValid()) {
+					validateAnbieter.getError();
 				}
 
 				if (allValid) {

@@ -15,6 +15,17 @@ public class Validator {
 		return validation;
 	}
 
+	public Validation validateAnbieter(String anbieter) {
+		Validation validation = null;
+		if (anbieter.isEmpty()) {
+			validation = new Validation(false,
+					"Feld Anbieter darf nicht leer sein!");
+		} else {
+			validation = new Validation(true);
+		}
+		return validation;
+	}
+
 	public Validation validateBezeichnung(String bezeichnung) {
 		Validation validation = null;
 		if (bezeichnung.isEmpty()) {
