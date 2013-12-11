@@ -64,9 +64,9 @@ public class Validator {
 	public Validation validatePLZ(Integer plz) {
 		Validation validation = null;
 
-		if (plz <= 0) {
+		if (plz <= 999) {
 			validation = new Validation(false,
-					"Feld Postleitzahl darf nicht leer sein");
+					"Feld PLZ muss grösser 999 sein!");
 		} else {
 			validation = new Validation(true);
 		}

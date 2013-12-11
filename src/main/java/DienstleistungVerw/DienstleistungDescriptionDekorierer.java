@@ -1,5 +1,11 @@
 package DienstleistungVerw;
 
+// Decorate Pattern umgesetzt
+
+// Klasse implementiert das Interface DienstleistungDecription und übernimmt den Konstruktor für die 
+// im Interface definierten, zwingend notwendigen Bezeichnung und Anbieter sowie einige Getter-Methoden
+// die anderen Felder werden in den jeweiligen Dienstleistungsklassen erzeugt.
+
 public abstract class DienstleistungDescriptionDekorierer implements
 		DienstleistungDescription {
 
