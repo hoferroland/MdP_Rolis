@@ -32,12 +32,9 @@ public class EventBroker extends Broker<Event> {
 	}
 
 	// Alle Events holen (ToDo: Aktuell noch nicht fertig implementiert)
-	public Vector<Event> getList() throws EventException {
+	public Vector<Event> getList(String sql) throws EventException {
 		try {
-			String sql = "SELECT * FROM TBL_EVENT";
-			// ToDo - Syntax-Problem HSQL mit BY
-			// String sql = "select ID_Event, txt_EventName " +
-			// "from tbl_event order by txt_EventName";
+
 			Vector<Event> result = query(sql);
 			return result;
 		} catch (Exception ex) {

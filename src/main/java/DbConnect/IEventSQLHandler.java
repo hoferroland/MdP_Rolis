@@ -1,5 +1,9 @@
 package DbConnect;
 
+import DienstleisterDecoratePattern.Anbieter;
+import DienstleisterDecoratePattern.Dekoration;
+import DienstleisterDecoratePattern.Unterhaltung;
+import DienstleisterDecoratePattern.Unterkunft;
 import DienstleistungVerw.Catering;
 import DienstleistungVerw.Entertainment;
 import DienstleistungVerw.Location;
@@ -13,6 +17,19 @@ public interface IEventSQLHandler {
 	// entertainmentHandler);
 
 	public String getInsert();
+
+	public void insertAnbieter(Anbieter anbieter) throws EventException;
+
+	public void insertUnterkunft(Unterkunft unterkunft, String anbieter)
+			throws EventException;
+
+	public void insertDekoration(Dekoration dekoration, String anbieter)
+			throws EventException;
+
+	public void insertUnterhaltung(Unterhaltung unterhaltung, String anbieter)
+			throws EventException;
+
+	public String[] getAnbieter();
 
 	public void insertLocation(Location location) throws EventException;
 

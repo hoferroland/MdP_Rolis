@@ -37,6 +37,28 @@ public class Validator {
 		return validation;
 	}
 
+	public Validation validateBeschreibung(String beschreibung) {
+		Validation validation = null;
+		if (beschreibung.isEmpty()) {
+			validation = new Validation(false,
+					"Feld Beschreibung darf nicht leer sein!");
+		} else {
+			validation = new Validation(true);
+		}
+		return validation;
+	}
+
+	public Validation validateName(String name) {
+		Validation validation = null;
+		if (name.isEmpty()) {
+			validation = new Validation(false,
+					"Feld Name darf nicht leer sein!");
+		} else {
+			validation = new Validation(true);
+		}
+		return validation;
+	}
+
 	public Validation validateStrasse(String strasse) {
 		Validation validation = null;
 
