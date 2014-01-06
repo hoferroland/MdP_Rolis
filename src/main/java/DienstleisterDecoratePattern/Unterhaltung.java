@@ -1,7 +1,9 @@
 package DienstleisterDecoratePattern;
 
+// Dekoration von Dienstleister mit 'Unterhaltung'
 public class Unterhaltung extends Dienstleister {
 
+	// Definition der Variablen
 	Dienstleister dienstleister;
 	String sName;
 	String sBeschreibung;
@@ -9,10 +11,12 @@ public class Unterhaltung extends Dienstleister {
 	String sAnzahl;
 	String sMusikstil;
 
+	// Konstruktor
 	public Unterhaltung(Dienstleister dienstleister) {
 		this.dienstleister = dienstleister;
 	}
 
+	// Setter und Getter-Methoden
 	public void setName(String sName) {
 		this.sName = sName;
 	}
@@ -37,6 +41,7 @@ public class Unterhaltung extends Dienstleister {
 		this.dPreis = dPreis;
 	}
 
+	// Preis setzt sich aus Pauschalpreis Anbieter und Preis Dekoration zusammen
 	public double preis() {
 		return dPreis + dienstleister.preis();
 	}

@@ -8,7 +8,6 @@ public class UnterkunftHandler implements IUnterkunftHandler {
 
 	public final IEventSQLHandler sqlHandler;
 
-	// public LocationHandler() {
 	public UnterkunftHandler(final IEventSQLHandler sqlHandler) {
 		this.sqlHandler = sqlHandler;
 
@@ -16,11 +15,10 @@ public class UnterkunftHandler implements IUnterkunftHandler {
 
 	String ins = "";
 
-	// public void getLocBezeichnung(Location location) {
-	// System.out.println(location.getBezeichnung());
-	// }
-
 	@Override
+	// Methode zum Aufruf der Methode 'insertUnterkunft' in Klasse
+	// EventSQLHandler.
+	// Uebergabe von unterkunft sowie anbieter (um Referenz in DB herzustellen)
 	public synchronized void insert(Unterkunft unterkunft, String anbieter)
 			throws EventException {
 

@@ -4,9 +4,6 @@ import DienstleisterDecoratePattern.Anbieter;
 import DienstleisterDecoratePattern.Dekoration;
 import DienstleisterDecoratePattern.Unterhaltung;
 import DienstleisterDecoratePattern.Unterkunft;
-import DienstleistungVerw.Catering;
-import DienstleistungVerw.Entertainment;
-import DienstleistungVerw.Location;
 
 public interface IEventSQLHandler {
 
@@ -31,10 +28,10 @@ public interface IEventSQLHandler {
 
 	public String[] getAnbieter();
 
-	public void insertLocation(Location location) throws EventException;
+	// public void insertLocation(Location location) throws EventException;
 
-	public void insertCatering(Catering catering) throws EventException;
+	// public void insertCatering(Catering catering) throws EventException;
 
-	public void insertEntertainment(Entertainment entertainment)
-			throws EventException;
+	// public void insertEntertainment(Entertainment entertainment)
+	// throws EventException;
 }

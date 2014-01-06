@@ -8,7 +8,6 @@ public class AnbieterHandler implements IAnbieterHandler {
 
 	public final IEventSQLHandler sqlHandler;
 
-	// public LocationHandler() {
 	public AnbieterHandler(final IEventSQLHandler sqlHandler) {
 		this.sqlHandler = sqlHandler;
 
@@ -16,11 +15,10 @@ public class AnbieterHandler implements IAnbieterHandler {
 
 	String ins = "";
 
-	// public void getLocBezeichnung(Location location) {
-	// System.out.println(location.getBezeichnung());
-	// }
-
 	@Override
+	// Methode zum Aufruf der Methode 'insertAnbieter' in Klasse
+	// EventSQLHandler.
+	// Uebergabe von anbieter
 	public synchronized void insert(Anbieter anbieter) throws EventException {
 
 		// System.out.println(ins);

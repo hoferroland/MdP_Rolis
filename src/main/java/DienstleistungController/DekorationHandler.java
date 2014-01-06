@@ -8,7 +8,6 @@ public class DekorationHandler implements IDekorationHandler {
 
 	public final IEventSQLHandler sqlHandler;
 
-	// public LocationHandler() {
 	public DekorationHandler(final IEventSQLHandler sqlHandler) {
 		this.sqlHandler = sqlHandler;
 
@@ -16,11 +15,10 @@ public class DekorationHandler implements IDekorationHandler {
 
 	String ins = "";
 
-	// public void getLocBezeichnung(Location location) {
-	// System.out.println(location.getBezeichnung());
-	// }
-
 	@Override
+	// Methode zum Aufruf der Methode 'insertDekoration' in Klasse
+	// EventSQLHandler.
+	// Uebergabe von dekoration sowie anbieter (um Referenz in DB herzustellen)
 	public synchronized void insert(Dekoration dekoration, String anbieter)
 			throws EventException {
 

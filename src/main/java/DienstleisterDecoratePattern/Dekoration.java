@@ -1,17 +1,21 @@
 package DienstleisterDecoratePattern;
 
+//Dekoration von Dienstleister mit 'Dekoration'
 public class Dekoration extends Dienstleister {
 
+	// Definition der Variablen
 	Dienstleister dienstleister;
 	String sBeschreibung;
 	String sName;
 	double dPreis;
 	boolean bBlumen = false;
 
+	// Konstruktor (Dekoration dekoriert einen Dienstleister)
 	public Dekoration(Dienstleister dienstleister) {
 		this.dienstleister = dienstleister;
 	}
 
+	// Setter und Getter-Methoden
 	public void setName(String sName) {
 		this.sName = sName;
 	}
@@ -36,6 +40,7 @@ public class Dekoration extends Dienstleister {
 		this.dPreis = dPreis;
 	}
 
+	// Preis setzt sich aus Pauschalpreis Anbieter und Preis Dekoration zusammen
 	public double preis() {
 		return dPreis + dienstleister.preis();
 	}

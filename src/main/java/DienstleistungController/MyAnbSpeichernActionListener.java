@@ -11,10 +11,11 @@ import GUI.AnbieterErfassen;
 import GUI.Validation;
 import GUI.Validator;
 
+// Controller-Klasse - implementiert ActionListener für 
+// Speichern-Funktion der GUI-Klasse AnbieterErfassen
 public class MyAnbSpeichernActionListener implements ActionListener {
 
-	// private AnbieterErfassen anbieterErfassen;
-
+	// Definition der Variablen
 	String stAnbBeschreibung;
 	String stAnbName;
 	String stAnbStrasse;
@@ -22,24 +23,14 @@ public class MyAnbSpeichernActionListener implements ActionListener {
 	String stAnbPLZ;
 	String stAnbOrt;
 	String stAnbEmail;
-	// double dAnbPauschale;
 	private final IAnbieterHandler anbieterHandler;
 	AnbieterErfassen anbErfa;
 
-	/*
-	 * public MyAnbSpeichernActionListener(String beschreibung, String name,
-	 * String strasse, String nr, String plz, String ort, String email, double
-	 * pauschale, final IAnbieterHandler anbieterHandler) {
-	 * this.txt_AnbBeschreibung = beschreibung; this.txt_AnbName = name;
-	 * this.txt_AnbStrasse = strasse; this.txt_AnbHausNr = nr; this.txt_AnbPLZ =
-	 * plz; this.txt_AnbOrt = ort; this.txt_AnbEmail = email; this.dAnbPauschale
-	 * = pauschale; this.anbieterHandler = anbieterHandler; }
-	 */
-
+	// Konstruktor
+	// Uebergabe Objekt AnbieterErfassen und Instanz von anbieterHandler
 	public MyAnbSpeichernActionListener(AnbieterErfassen anbErfa,
 			final IAnbieterHandler anbieterHandler) {
 		this.anbieterHandler = anbieterHandler;
-		// anbieterHandler = new anbieterHandler;
 		this.anbErfa = anbErfa;
 	}
 

@@ -8,7 +8,6 @@ public class UnterhaltungHandler implements IUnterhaltungHandler {
 
 	public final IEventSQLHandler sqlHandler;
 
-	// public LocationHandler() {
 	public UnterhaltungHandler(final IEventSQLHandler sqlHandler) {
 		this.sqlHandler = sqlHandler;
 
@@ -16,11 +15,11 @@ public class UnterhaltungHandler implements IUnterhaltungHandler {
 
 	String ins = "";
 
-	// public void getLocBezeichnung(Location location) {
-	// System.out.println(location.getBezeichnung());
-	// }
-
 	@Override
+	// Methode zum Aufruf der Methode 'insertUnterhaltung' in Klasse
+	// EventSQLHandler.
+	// Uebergabe von unterhaltung sowie anbieter (um Referenz in DB
+	// herzustellen)
 	public synchronized void insert(Unterhaltung unterhaltung, String anbieter)
 			throws EventException {
 

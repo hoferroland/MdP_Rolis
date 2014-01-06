@@ -1,8 +1,9 @@
 package DienstleisterDecoratePattern;
 
+// Konkrete Implementierung von Dienstleister
 public class Anbieter extends Dienstleister {
 
-	// String sBezeichnung = "";
+	// Definition der Variablen
 	String sName = "";
 	String sStrasse = "";
 	String sNr;
@@ -10,6 +11,7 @@ public class Anbieter extends Dienstleister {
 	String sOrt = "";
 	String sEmail = "";
 
+	// Konstruktoren
 	public Anbieter(String sAnbieter, String sName, String sStrasse,
 			String sNr, String sPLZ, String sOrt, String sEmail) {
 		beschreibung = sAnbieter;
@@ -22,13 +24,13 @@ public class Anbieter extends Dienstleister {
 	}
 
 	public Anbieter() {
-
 	}
 
 	public Anbieter(String sAnbieter) {
 		beschreibung = sAnbieter;
 	}
 
+	// Setter und Getter-Methoden
 	public void setPreis(Double dPreis) {
 		preis = dPreis;
 	}
