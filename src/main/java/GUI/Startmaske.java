@@ -1,13 +1,16 @@
 package GUI;
 
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
 import DbConnect.IEventSQLHandler;
@@ -38,8 +41,9 @@ public class Startmaske extends JFrame {
 			final IDekorationHandler dekorationHandler,
 			final IUnterhaltungHandler unterhaltungHandler,
 			final IEventSQLHandler sqlHandler) {
+		setTitle("BIG-EVENT  -  Dienstleistung Administration");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 360);
+		setBounds(100, 100, 540, 360);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -69,6 +73,12 @@ public class Startmaske extends JFrame {
 		});
 		btnNewUkunft.setBounds(10, 166, 212, 33);
 		contentPane.add(btnNewUkunft);
+		// Button nur sichtbar wenn 'ComboBox' Anbieter Wert enthält
+		if (comboBox.getSelectedItem() == null) {
+			btnNewUkunft.setVisible(false);
+		} else {
+			btnNewUkunft.setVisible(true);
+		}
 		btnNewUkunft.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent ae) {
 				UnterkunftErfassen ukunftErfa = new UnterkunftErfassen(
@@ -91,6 +101,23 @@ public class Startmaske extends JFrame {
 		JButton btnNewUhalt = new JButton("Neue Unterhaltung hinzuf\u00FCgen");
 		btnNewUhalt.setBounds(10, 254, 212, 33);
 		contentPane.add(btnNewUhalt);
+
+		JLabel label = new JLabel("New label");
+		label.setIcon(new ImageIcon(Startmaske.class
+				.getResource("/Pic/BigEvent.jpg")));
+		label.setBounds(272, 90, 230, 200);
+		contentPane.add(label);
+
+		JLabel label_1 = new JLabel("(c) MdPRolis 2013 by zhaw");
+		label_1.setFont(new Font("Tahoma", Font.PLAIN, 6));
+		label_1.setBounds(10, 297, 147, 14);
+		contentPane.add(label_1);
+
+		JLabel lblVersion = new JLabel("Version 0.1 - 06.01.2014");
+		lblVersion.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblVersion.setFont(new Font("Tahoma", Font.PLAIN, 6));
+		lblVersion.setBounds(355, 295, 147, 14);
+		contentPane.add(lblVersion);
 		btnNewUhalt.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent ae) {
 				UnterhaltungErfassen uhaltErfa = new UnterhaltungErfassen(

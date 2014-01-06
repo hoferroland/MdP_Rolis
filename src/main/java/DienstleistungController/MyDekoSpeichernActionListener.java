@@ -13,30 +13,19 @@ import GUI.DekorationErfassen;
 import GUI.Validation;
 import GUI.Validator;
 
+//Controller-Klasse - implementiert ActionListener für 
+//Speichern-Funktion der GUI-Klasse DekorationErfassen
 public class MyDekoSpeichernActionListener implements ActionListener {
 
-	// private AnbieterErfassen anbieterErfassen;
-
-	String stDekoBeschreibung;
-	String stDekoName;
-	// Boolean stDekoBlumen;
-
+	// Definition der Variablen
+	String stDekoBeschreibung = "";
+	String stDekoName = "";
 	private final IDekorationHandler dekorationHandler;
 	DekorationErfassen dekoErfa;
 	Dekoration deko;
 
-	// Unterkunft uku;
-
-	/*
-	 * public MyAnbSpeichernActionListener(String beschreibung, String name,
-	 * String strasse, String nr, String plz, String ort, String email, double
-	 * pauschale, final IAnbieterHandler anbieterHandler) {
-	 * this.txt_AnbBeschreibung = beschreibung; this.txt_AnbName = name;
-	 * this.txt_AnbStrasse = strasse; this.txt_AnbHausNr = nr; this.txt_AnbPLZ =
-	 * plz; this.txt_AnbOrt = ort; this.txt_AnbEmail = email; this.dAnbPauschale
-	 * = pauschale; this.anbieterHandler = anbieterHandler; }
-	 */
-
+	// Konstruktor
+	// Uebergabe Objekt DekorationErfassen und Instanz von dekorationHandler
 	public MyDekoSpeichernActionListener(DekorationErfassen dekoErfa,
 			final IDekorationHandler dekorationHandler) {
 		this.dekorationHandler = dekorationHandler;
@@ -45,8 +34,9 @@ public class MyDekoSpeichernActionListener implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-
+		// Methodenaufruf um Leerzeichen zu eliminieren
 		trimValues();
+		// Validator instanzieren
 		Validator validator = new Validator();
 
 		boolean allValid = true;
@@ -62,9 +52,13 @@ public class MyDekoSpeichernActionListener implements ActionListener {
 		if (!validateName.isValid()) {
 			validateName.getError();
 		}
-
+		// Falls Validierung erfolgreich, neuen Dienstleister mit Anbieter
+		// erstellen und mit
+		// Dekoration dekorieren und Felder für Dekoration abfüllen
 		if (allValid) {
+			// Konkrete Erstellung eines Dienstleisters
 			Dienstleister service1 = new Anbieter();
+			// Dekoration des konkreten Dienstleisters
 			deko = new Dekoration(service1);
 			service1 = deko;
 
@@ -88,6 +82,7 @@ public class MyDekoSpeichernActionListener implements ActionListener {
 
 	}
 
+	// Leerzeichen eliminieren
 	private void trimValues() {
 		stDekoBeschreibung = dekoErfa.getBeschreibung().trim();
 		stDekoName = dekoErfa.getName().trim();

@@ -13,10 +13,11 @@ import GUI.UnterkunftErfassen;
 import GUI.Validation;
 import GUI.Validator;
 
+//Controller-Klasse - implementiert ActionListener für 
+//Speichern-Funktion der GUI-Klasse UnterkunftErfassen
 public class MyUkunftSpeichernActionListener implements ActionListener {
 
-	// private AnbieterErfassen anbieterErfassen;
-
+	// Definition der Variablen
 	String stUkunftBeschreibung;
 	String stUkunftName;
 	String stUkunftPlaetze;
@@ -27,22 +28,13 @@ public class MyUkunftSpeichernActionListener implements ActionListener {
 	String stUkunftPLZ;
 	String stUkunftOrt;
 	Boolean stUkunftBeamer;
-
 	double dAnbPauschale;
 	private final IUnterkunftHandler unterkunftHandler;
 	UnterkunftErfassen ukunftErfa;
 	Unterkunft uku;
 
-	/*
-	 * public MyAnbSpeichernActionListener(String beschreibung, String name,
-	 * String strasse, String nr, String plz, String ort, String email, double
-	 * pauschale, final IAnbieterHandler anbieterHandler) {
-	 * this.txt_AnbBeschreibung = beschreibung; this.txt_AnbName = name;
-	 * this.txt_AnbStrasse = strasse; this.txt_AnbHausNr = nr; this.txt_AnbPLZ =
-	 * plz; this.txt_AnbOrt = ort; this.txt_AnbEmail = email; this.dAnbPauschale
-	 * = pauschale; this.anbieterHandler = anbieterHandler; }
-	 */
-
+	// Konstruktor
+	// Uebergabe Objekt UnterkunftErfassen und Instanz von unterkunftHandler
 	public MyUkunftSpeichernActionListener(UnterkunftErfassen ukunftErfa,
 			final IUnterkunftHandler ukunftHandler) {
 		this.unterkunftHandler = ukunftHandler;
@@ -51,8 +43,9 @@ public class MyUkunftSpeichernActionListener implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-
+		// Methodenaufruf um Leerzeichen zu eliminieren
 		trimValues();
+		// Validator instanzieren
 		Validator validator = new Validator();
 
 		boolean allValid = true;
@@ -79,9 +72,13 @@ public class MyUkunftSpeichernActionListener implements ActionListener {
 		if (!validateOrt.isValid()) {
 			validateOrt.getError();
 		}
-
+		// Falls Validierung erfolgreich, neuen Dienstleister mit Anbieter
+		// erstellen und mit
+		// Unterkunft dekorieren und Felder für Unterkunft abfüllen
 		if (allValid) {
+			// Konkrete Erstellung eines Dienstleisters
 			Dienstleister service1 = new Anbieter();
+			// Dekoration des konkreten Dienstleisters
 			uku = new Unterkunft(service1);
 			service1 = uku;
 
@@ -112,6 +109,7 @@ public class MyUkunftSpeichernActionListener implements ActionListener {
 
 	}
 
+	// Leerzeichen eliminieren
 	private void trimValues() {
 		stUkunftBeschreibung = ukunftErfa.getUkunftBeschreibung().trim();
 		stUkunftName = ukunftErfa.getUkunftName().trim();

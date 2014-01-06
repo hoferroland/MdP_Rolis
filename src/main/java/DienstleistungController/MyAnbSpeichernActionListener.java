@@ -16,13 +16,13 @@ import GUI.Validator;
 public class MyAnbSpeichernActionListener implements ActionListener {
 
 	// Definition der Variablen
-	String stAnbBeschreibung;
-	String stAnbName;
-	String stAnbStrasse;
-	String stAnbHausNr;
-	String stAnbPLZ;
-	String stAnbOrt;
-	String stAnbEmail;
+	String stAnbBeschreibung = "";
+	String stAnbName = "";
+	String stAnbStrasse = "";
+	String stAnbHausNr = "";
+	String stAnbPLZ = "";
+	String stAnbOrt = "";
+	String stAnbEmail = "";
 	private final IAnbieterHandler anbieterHandler;
 	AnbieterErfassen anbErfa;
 
@@ -36,12 +36,14 @@ public class MyAnbSpeichernActionListener implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-
+		// Methodenaufruf um Leerzeichen zu eliminieren
 		trimValues();
+
+		// Validator instanzieren
 		Validator validator = new Validator();
-		// todo - wie kann ich vom GUI was speichern?????
 
 		boolean allValid = true;
+
 		Validation validateBeschreibung = validator
 				.validateBeschreibung(stAnbBeschreibung);
 		allValid &= validateBeschreibung.isValid();
@@ -64,7 +66,8 @@ public class MyAnbSpeichernActionListener implements ActionListener {
 		if (!validateOrt.isValid()) {
 			validateOrt.getError();
 		}
-
+		// Falls Validierung erfolgreich, neuen Anbieter erstellen und Felder
+		// abfüllen
 		if (allValid) {
 			final Anbieter anbieter = new Anbieter(stAnbBeschreibung);
 			anbieter.setName(stAnbName);
@@ -75,10 +78,6 @@ public class MyAnbSpeichernActionListener implements ActionListener {
 			anbieter.setEmail(stAnbEmail);
 			anbieter.setPreis(anbErfa.getPauschale());
 
-			// neuer Service (save....)
-			// Nur zu Debugzwecken..
-			// System.out.println(location.getBezeichnung());
-			// Handler L
 			SwingUtilities.invokeLater(new Runnable() {
 				public void run() {
 					try {
@@ -93,10 +92,10 @@ public class MyAnbSpeichernActionListener implements ActionListener {
 
 	}
 
+	// Leerzeichen eliminieren
 	private void trimValues() {
 		stAnbBeschreibung = anbErfa.getAnbBeschr().trim();
 		stAnbName = anbErfa.getAnbName().trim();
-		// String stBezeichnung = txtLocationBezeichnung.getText();
 		stAnbStrasse = anbErfa.getAnbStrasse().trim();
 		stAnbHausNr = anbErfa.getAnbHausNr().trim();
 		stAnbPLZ = anbErfa.getAnbPlz().trim();

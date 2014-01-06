@@ -13,7 +13,7 @@ import DienstleistungController.MyAnbSpeichernActionListener;
 public class AnbieterErfassen extends JFrame {
 
 	/**
-	 * 
+	 * Variablen
 	 */
 	private static final long serialVersionUID = -3609697716827606332L;
 	private IAnbieterHandler anbieterHandler;
@@ -29,18 +29,9 @@ public class AnbieterErfassen extends JFrame {
 	private double dAnbPauschale;
 
 	/**
-	 * Launch the application.
-	 */
-	/*
-	 * public static void main(String[] args) { EventQueue.invokeLater(new
-	 * Runnable() { public void run() { try { AnbieterErfassen frame = new
-	 * AnbieterErfassen(); frame.setVisible(true); } catch (Exception e) {
-	 * e.printStackTrace(); } } }); }
-	 */
-
-	/**
 	 * Create the frame.
 	 */
+	// Konstruktor mit Uebergabe anbieterHandler
 	public AnbieterErfassen(final IAnbieterHandler anbieterHandler) {
 		this.anbieterHandler = anbieterHandler;
 
@@ -128,16 +119,9 @@ public class AnbieterErfassen extends JFrame {
 		JLabel lblNewLabel_6 = new JLabel("Pauschale (Preis):");
 		lblNewLabel_6.setBounds(20, 282, 115, 14);
 		contentPane.add(lblNewLabel_6);
-		/*
-		 * MyAnbSpeichernActionListener btnSpeichernAC = new
-		 * MyAnbSpeichernActionListener(
-		 * 
-		 * txt_AnbBeschreibung.getText(), txt_AnbName.getText(),
-		 * txt_AnbStrasse.getText(), txt_AnbHausNr.getText(),
-		 * txt_AnbPLZ.getText(), txt_AnbOrt.getText(), txt_AnbEmail.getText(),
-		 * dAnbPauschale, anbieterHandler);
-		 */
 
+		// Instanzierung der Controller-Klasse und Uebergabe GUI-Objekt sowie
+		// anbieterHandler
 		MyAnbSpeichernActionListener btnSpeichernAC = new MyAnbSpeichernActionListener(
 				this, anbieterHandler);
 
@@ -154,6 +138,7 @@ public class AnbieterErfassen extends JFrame {
 
 	}
 
+	// Getter-Methoden
 	public double getPauschale() {
 		return Double.parseDouble(txt_AnbPauschale.getText());
 	}

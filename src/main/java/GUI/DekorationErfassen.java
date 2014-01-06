@@ -16,6 +16,10 @@ import DienstleistungController.MyDekoSpeichernActionListener;
 
 public class DekorationErfassen extends JFrame {
 
+	/**
+	 * Definition der Variablen
+	 */
+	private static final long serialVersionUID = -2961786719061190178L;
 	private String anbieter;
 	private JPanel contentPane;
 	private JTextField txt_DekoName;
@@ -25,18 +29,10 @@ public class DekorationErfassen extends JFrame {
 	private Boolean bDekoBlumen = false;
 
 	/**
-	 * Launch the application.
-	 */
-	/*
-	 * public static void main(String[] args) { EventQueue.invokeLater(new
-	 * Runnable() { public void run() { try { DekorationErfassen frame = new
-	 * DekorationErfassen(); frame.setVisible(true); } catch (Exception e) {
-	 * e.printStackTrace(); } } }); }
-	 */
-
-	/**
 	 * Create the frame.
 	 */
+	// Konstruktor mit Uebergabe dekorationHandler und 'zugrundeliegender'
+	// anbieter
 	public DekorationErfassen(final IDekorationHandler dekorationHandler,
 			String anbieter) {
 		this.anbieter = anbieter;
@@ -73,6 +69,7 @@ public class DekorationErfassen extends JFrame {
 		checkBoxDekoBlumen = new JCheckBox("Mit Blumen");
 		checkBoxDekoBlumen.setBounds(92, 123, 97, 23);
 		contentPane.add(checkBoxDekoBlumen);
+		// Um Zustandsänderung der Checkbox 'Blumen' auszulesen
 		checkBoxDekoBlumen.addItemListener(new ItemListener() {
 			public void itemStateChanged(ItemEvent ie) {
 				if (checkBoxDekoBlumen.isSelected()) {
@@ -80,8 +77,6 @@ public class DekorationErfassen extends JFrame {
 				}
 			}
 		});
-
-		// bDekoBlumen = checkBoxDekoBlumen.isSelected();
 
 		JLabel lblNewLabel_1 = new JLabel("Preis:");
 		lblNewLabel_1.setBounds(10, 161, 46, 14);
@@ -92,6 +87,8 @@ public class DekorationErfassen extends JFrame {
 		contentPane.add(txt_DekoPreis);
 		txt_DekoPreis.setColumns(10);
 
+		// Instanzierung der Controller-Klasse und Uebergabe GUI-Objekt sowie
+		// dekorationHandler
 		MyDekoSpeichernActionListener btnSpeichernAC = new MyDekoSpeichernActionListener(
 				this, dekorationHandler);
 
@@ -101,6 +98,7 @@ public class DekorationErfassen extends JFrame {
 		btnDekoSpeichern.addActionListener(btnSpeichernAC);
 	}
 
+	// Getter-Methoden
 	public String getAnbieterName() {
 		return this.anbieter;
 	}

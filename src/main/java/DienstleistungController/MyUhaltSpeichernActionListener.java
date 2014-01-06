@@ -13,29 +13,21 @@ import GUI.UnterhaltungErfassen;
 import GUI.Validation;
 import GUI.Validator;
 
+//Controller-Klasse - implementiert ActionListener für 
+//Speichern-Funktion der GUI-Klasse UnterhaltungErfassen
 public class MyUhaltSpeichernActionListener implements ActionListener {
 
-	// private AnbieterErfassen anbieterErfassen;
-
+	// Definition der Variablen
 	String stUhaltBeschreibung;
 	String stUhaltName;
 	String stUhaltAnzahl;
 	String stUhaltStil;
-
 	private final IUnterhaltungHandler unterhaltungHandler;
 	UnterhaltungErfassen uhaltErfa;
 	Unterhaltung uhalt;
 
-	/*
-	 * public MyAnbSpeichernActionListener(String beschreibung, String name,
-	 * String strasse, String nr, String plz, String ort, String email, double
-	 * pauschale, final IAnbieterHandler anbieterHandler) {
-	 * this.txt_AnbBeschreibung = beschreibung; this.txt_AnbName = name;
-	 * this.txt_AnbStrasse = strasse; this.txt_AnbHausNr = nr; this.txt_AnbPLZ =
-	 * plz; this.txt_AnbOrt = ort; this.txt_AnbEmail = email; this.dAnbPauschale
-	 * = pauschale; this.anbieterHandler = anbieterHandler; }
-	 */
-
+	// Konstruktor
+	// Uebergabe Objekt UnterhaltungErfassen und Instanz von unterhaltungHandler
 	public MyUhaltSpeichernActionListener(UnterhaltungErfassen uhaltErfa,
 			final IUnterhaltungHandler unterhaltungHandler) {
 		this.unterhaltungHandler = unterhaltungHandler;
@@ -44,8 +36,9 @@ public class MyUhaltSpeichernActionListener implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-
+		// Methodenaufruf um Leerzeichen zu eliminieren
 		trimValues();
+		// Validator instanzieren
 		Validator validator = new Validator();
 
 		boolean allValid = true;
@@ -61,9 +54,13 @@ public class MyUhaltSpeichernActionListener implements ActionListener {
 		if (!validateName.isValid()) {
 			validateName.getError();
 		}
-
+		// Falls Validierung erfolgreich, neuen Dienstleister mit Anbieter
+		// erstellen und mit
+		// Unterhaltung dekorieren und Felder für Unterhaltung abfüllen
 		if (allValid) {
+			// Konkrete Erstellung eines Dienstleisters
 			Dienstleister service1 = new Anbieter();
+			// Dekoration des konkreten Dienstleisters
 			uhalt = new Unterhaltung(service1);
 			service1 = uhalt;
 
@@ -88,6 +85,7 @@ public class MyUhaltSpeichernActionListener implements ActionListener {
 
 	}
 
+	// Leerzeichen eliminieren
 	private void trimValues() {
 		stUhaltBeschreibung = uhaltErfa.getBeschreibung().trim();
 		stUhaltName = uhaltErfa.getName().trim();
