@@ -133,15 +133,15 @@ public class AnbieterErfassen extends JFrame {
 		MyAnbSpeichernActionListener btnSpeichernAC = new MyAnbSpeichernActionListener(
 				this, anbieterHandler);
 
-		JButton btn_AnbSpeichern = new JButton("Eingaben speichern");
+		JButton btn_AnbSpeichern = new JButton("Angaben speichern");
 		btn_AnbSpeichern.setToolTipText("Eingaben speichern");
-		btn_AnbSpeichern.setBounds(20, 334, 132, 23);
+		btn_AnbSpeichern.setBounds(20, 334, 211, 23);
 		contentPane.add(btn_AnbSpeichern);
 		btn_AnbSpeichern.addActionListener(btnSpeichernAC);
 
 		JButton btn_AnbAbbrechen = new JButton("Aktion abbrechen");
 		btn_AnbAbbrechen.setToolTipText("Abbrechen");
-		btn_AnbAbbrechen.setBounds(165, 334, 123, 23);
+		btn_AnbAbbrechen.setBounds(283, 334, 123, 23);
 		contentPane.add(btn_AnbAbbrechen);
 		btn_AnbAbbrechen.setVisible(false); // noch nicht implementiert
 

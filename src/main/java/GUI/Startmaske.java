@@ -18,6 +18,7 @@ import DienstleistungController.IAnbieterHandler;
 import DienstleistungController.IDekorationHandler;
 import DienstleistungController.IUnterhaltungHandler;
 import DienstleistungController.IUnterkunftHandler;
+import DienstleistungController.IVerpflegungHandler;
 
 public class Startmaske extends JFrame {
 
@@ -31,10 +32,11 @@ public class Startmaske extends JFrame {
 			final IUnterkunftHandler ukunftHandler,
 			final IDekorationHandler dekorationHandler,
 			final IUnterhaltungHandler unterhaltungHandler,
+			final IVerpflegungHandler verpflegungHandler,
 			final IEventSQLHandler sqlHandler) {
 		setTitle("BIG-EVENT  -  Dienstleistung Administration");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 540, 360);
+		setBounds(100, 100, 540, 413);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -60,13 +62,13 @@ public class Startmaske extends JFrame {
 
 		JLabel label_1 = new JLabel("(c) MdPRolis 2013 by zhaw");
 		label_1.setFont(new Font("Tahoma", Font.PLAIN, 6));
-		label_1.setBounds(10, 297, 147, 14);
+		label_1.setBounds(10, 350, 147, 14);
 		contentPane.add(label_1);
 
 		JLabel lblVersion = new JLabel("Version 0.1 - 06.01.2014");
 		lblVersion.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblVersion.setFont(new Font("Tahoma", Font.PLAIN, 6));
-		lblVersion.setBounds(355, 295, 147, 14);
+		lblVersion.setBounds(355, 350, 147, 14);
 		contentPane.add(lblVersion);
 
 		// Button 'Anbieter hinzufügen'
@@ -134,7 +136,33 @@ public class Startmaske extends JFrame {
 				uhaltErfa.setVisible(true);
 			}
 		});
+		// Button 'neue Verpflegung hinzufügen'
+		JButton btnNewVerpf = new JButton("Neue Verpflegung hinzuf\u00FCgen");
+		btnNewVerpf.setToolTipText("Neuen Service 'Verpflegung' erfassen");
+		btnNewVerpf.setBounds(10, 295, 212, 33);
+		contentPane.add(btnNewVerpf);
+		// Erfassungsformular 'VerpflegungErfassen' öffnen
+		btnNewVerpf.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent ae) {
+				VerpflegungErfassen verpfErfa = new VerpflegungErfassen(
+						verpflegungHandler, comboBox.getSelectedItem()
+								.toString());
+				verpfErfa.setVisible(true);
+			}
+		});
 
+		// Dieser Teil ist noch nicht fertig implementiert
+		/*
+		 * JButton btnPreisberechnung = new JButton("Preisberechnung");
+		 * btnPreisberechnung.setBounds(282, 45, 89, 23);
+		 * contentPane.add(btnPreisberechnung);
+		 * btnPreisberechnung.addActionListener(new ActionListener() { public
+		 * void actionPerformed(ActionEvent ae) { PreisberechnungProAnbieter
+		 * preisber = new PreisberechnungProAnbieter( anbHandler, ukunftHandler,
+		 * dekorationHandler, unterhaltungHandler, sqlHandler);
+		 * 
+		 * preisber.setVisible(true); } });
+		 */
 		// Button nur sichtbar wenn 'ComboBox' Anbieter Wert enthält
 		if (comboBox.getSelectedItem() == null) {
 			btnNewUkunft.setVisible(false);
@@ -147,5 +175,4 @@ public class Startmaske extends JFrame {
 		}
 
 	}
-
 }

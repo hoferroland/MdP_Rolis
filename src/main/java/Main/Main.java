@@ -8,8 +8,10 @@ import DienstleistungController.IAnbieterHandler;
 import DienstleistungController.IDekorationHandler;
 import DienstleistungController.IUnterhaltungHandler;
 import DienstleistungController.IUnterkunftHandler;
+import DienstleistungController.IVerpflegungHandler;
 import DienstleistungController.UnterhaltungHandler;
 import DienstleistungController.UnterkunftHandler;
+import DienstleistungController.VerpflegungHandler;
 import GUI.Startmaske;
 
 public class Main {
@@ -23,9 +25,12 @@ public class Main {
 		IDekorationHandler dekorationHandler = new DekorationHandler(sqlHandler);
 		IUnterhaltungHandler unterhaltungHandler = new UnterhaltungHandler(
 				sqlHandler);
+		IVerpflegungHandler verpflegungHandler = new VerpflegungHandler(
+				sqlHandler);
 
 		Startmaske start = new Startmaske(anbHandler, ukunftHandler,
-				dekorationHandler, unterhaltungHandler, sqlHandler);
+				dekorationHandler, unterhaltungHandler, verpflegungHandler,
+				sqlHandler);
 
 		// AnbieterErfassen anberfa = new AnbieterErfassen(anbhandler);
 

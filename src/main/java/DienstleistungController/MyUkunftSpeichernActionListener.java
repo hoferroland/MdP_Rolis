@@ -28,7 +28,7 @@ public class MyUkunftSpeichernActionListener implements ActionListener {
 	String stUkunftPLZ;
 	String stUkunftOrt;
 	Boolean stUkunftBeamer;
-	double dAnbPauschale;
+
 	private final IUnterkunftHandler unterkunftHandler;
 	UnterkunftErfassen ukunftErfa;
 	Unterkunft uku;
