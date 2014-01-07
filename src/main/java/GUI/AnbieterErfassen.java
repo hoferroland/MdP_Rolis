@@ -1,5 +1,7 @@
 package GUI;
 
+import java.awt.Font;
+
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -33,6 +35,7 @@ public class AnbieterErfassen extends JFrame {
 	 */
 	// Konstruktor mit Uebergabe anbieterHandler
 	public AnbieterErfassen(final IAnbieterHandler anbieterHandler) {
+		setTitle("\"BIG-EVENT  -  Neuen Anbieter erfassen\"");
 		this.anbieterHandler = anbieterHandler;
 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -42,19 +45,52 @@ public class AnbieterErfassen extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 
+		// Labels
+
 		JLabel lblAnbieterNeuerfassung = new JLabel("Anbieter Neu-Erfassung");
-		lblAnbieterNeuerfassung.setBounds(10, 11, 154, 21);
+		lblAnbieterNeuerfassung.setFont(new Font("Tahoma", Font.BOLD, 12));
+		lblAnbieterNeuerfassung.setBounds(10, 11, 186, 21);
 		contentPane.add(lblAnbieterNeuerfassung);
 
+		JLabel lblAnbietername = new JLabel("Firma-/K\u00FCnstler:");
+		lblAnbietername.setToolTipText("Firma- oder K\u00FCnstlername");
+		lblAnbietername.setBounds(20, 47, 96, 20);
+		contentPane.add(lblAnbietername);
+
+		JLabel lblNewLabel = new JLabel("Name:");
+		lblNewLabel.setBounds(20, 96, 115, 14);
+		contentPane.add(lblNewLabel);
+
+		JLabel lblNewLabel_1 = new JLabel("Strasse:");
+		lblNewLabel_1.setBounds(20, 127, 115, 14);
+		contentPane.add(lblNewLabel_1);
+
+		JLabel lblNewLabel_2 = new JLabel("Hausnummer:");
+		lblNewLabel_2.setBounds(20, 158, 96, 14);
+		contentPane.add(lblNewLabel_2);
+
+		JLabel lblNewLabel_3 = new JLabel("PLZ:");
+		lblNewLabel_3.setBounds(20, 189, 96, 14);
+		contentPane.add(lblNewLabel_3);
+
+		JLabel lblNewLabel_4 = new JLabel("Ort:");
+		lblNewLabel_4.setBounds(20, 220, 96, 14);
+		contentPane.add(lblNewLabel_4);
+
+		JLabel lblNewLabel_5 = new JLabel("E-Mail-Adresse:");
+		lblNewLabel_5.setBounds(20, 251, 115, 14);
+		contentPane.add(lblNewLabel_5);
+
+		JLabel lblNewLabel_6 = new JLabel("Pauschale (Preis):");
+		lblNewLabel_6.setBounds(20, 282, 115, 14);
+		contentPane.add(lblNewLabel_6);
+
+		// Datenfelder
+
 		txt_AnbBeschreibung = new JTextField();
-		txt_AnbBeschreibung.setBounds(145, 47, 86, 20);
+		txt_AnbBeschreibung.setBounds(145, 47, 132, 20);
 		contentPane.add(txt_AnbBeschreibung);
 		txt_AnbBeschreibung.setColumns(10);
-
-		JLabel lblAnbietername = new JLabel("Anbietername:");
-		lblAnbietername.setToolTipText("Firma- oder K\u00FCnstlername");
-		lblAnbietername.setBounds(20, 50, 115, 14);
-		contentPane.add(lblAnbietername);
 
 		txt_AnbName = new JTextField();
 		txt_AnbName.setBounds(145, 93, 86, 20);
@@ -86,39 +122,11 @@ public class AnbieterErfassen extends JFrame {
 		contentPane.add(txt_AnbEmail);
 		txt_AnbEmail.setColumns(10);
 
-		JLabel lblNewLabel = new JLabel("Name:");
-		lblNewLabel.setBounds(20, 96, 46, 14);
-		contentPane.add(lblNewLabel);
-
-		JLabel lblNewLabel_1 = new JLabel("Strasse:");
-		lblNewLabel_1.setBounds(20, 127, 46, 14);
-		contentPane.add(lblNewLabel_1);
-
-		JLabel lblNewLabel_2 = new JLabel("Hausnummer:");
-		lblNewLabel_2.setBounds(20, 158, 96, 14);
-		contentPane.add(lblNewLabel_2);
-
-		JLabel lblNewLabel_3 = new JLabel("PLZ:");
-		lblNewLabel_3.setBounds(20, 189, 46, 14);
-		contentPane.add(lblNewLabel_3);
-
-		JLabel lblNewLabel_4 = new JLabel("Ort:");
-		lblNewLabel_4.setBounds(20, 220, 46, 14);
-		contentPane.add(lblNewLabel_4);
-
-		JLabel lblNewLabel_5 = new JLabel("E-Mail-Adresse:");
-		lblNewLabel_5.setBounds(20, 251, 115, 14);
-		contentPane.add(lblNewLabel_5);
-
 		txt_AnbPauschale = new JTextField();
 		txt_AnbPauschale.setBounds(145, 279, 86, 20);
 		contentPane.add(txt_AnbPauschale);
 		txt_AnbPauschale.setColumns(10);
 		// dAnbPauschale = Double.parseDouble(txt_AnbPauschale.getText());
-
-		JLabel lblNewLabel_6 = new JLabel("Pauschale (Preis):");
-		lblNewLabel_6.setBounds(20, 282, 115, 14);
-		contentPane.add(lblNewLabel_6);
 
 		// Instanzierung der Controller-Klasse und Uebergabe GUI-Objekt sowie
 		// anbieterHandler
@@ -135,6 +143,7 @@ public class AnbieterErfassen extends JFrame {
 		btn_AnbAbbrechen.setToolTipText("Abbrechen");
 		btn_AnbAbbrechen.setBounds(165, 334, 123, 23);
 		contentPane.add(btn_AnbAbbrechen);
+		btn_AnbAbbrechen.setVisible(false); // noch nicht implementiert
 
 	}
 

@@ -13,6 +13,10 @@ import DienstleistungController.MyUhaltSpeichernActionListener;
 
 public class UnterhaltungErfassen extends JFrame {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -7868184337340054876L;
 	private String anbieter;
 	private JPanel contentPane;
 	private JTextField txt_UhaltName;
@@ -22,24 +26,13 @@ public class UnterhaltungErfassen extends JFrame {
 	private JTextField txt_UhaltPreis;
 
 	/**
-	 * Launch the application.
-	 */
-
-	/*
-	 * public static void main(String[] args) { EventQueue.invokeLater(new
-	 * Runnable() { public void run() { try { UnterhaltungErfassen frame = new
-	 * UnterhaltungErfassen(); frame.setVisible(true); } catch (Exception e) {
-	 * e.printStackTrace(); } } }); }
-	 */
-
-	/**
 	 * Create the frame.
 	 */
 	public UnterhaltungErfassen(final IUnterhaltungHandler unterhaltungHandler,
 			String anbieter) {
 		this.anbieter = anbieter;
 
-		setTitle("Unterhaltung erfassen");
+		setTitle("\"BIG-EVENT  -  Dienstleistung Unterhaltung hinzuf\u00FCgen\"");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 341);
 		contentPane = new JPanel();
@@ -47,67 +40,74 @@ public class UnterhaltungErfassen extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 
+		// Labels
+
 		JLabel lblNewLabel = new JLabel(
 				"Bitte Angaben zur Unterhaltung eingeben");
 		lblNewLabel.setBounds(10, 11, 242, 14);
 		contentPane.add(lblNewLabel);
 
-		txt_UhaltName = new JTextField();
-		txt_UhaltName.setBounds(119, 36, 285, 20);
-		contentPane.add(txt_UhaltName);
-		txt_UhaltName.setColumns(10);
-
 		JLabel lblNewLabel_1 = new JLabel("Name:");
-		lblNewLabel_1.setBounds(10, 36, 46, 14);
+		lblNewLabel_1.setBounds(10, 50, 99, 14);
 		contentPane.add(lblNewLabel_1);
 
 		JLabel lblNewLabel_2 = new JLabel("Beschreibung:");
-		lblNewLabel_2.setBounds(10, 75, 85, 14);
+		lblNewLabel_2.setBounds(10, 83, 99, 14);
 		contentPane.add(lblNewLabel_2);
 
-		txt_UhaltBeschreibung = new JTextField();
-		txt_UhaltBeschreibung.setBounds(119, 71, 285, 59);
-		contentPane.add(txt_UhaltBeschreibung);
-		txt_UhaltBeschreibung.setColumns(10);
-
 		JLabel lblNewLabel_3 = new JLabel("Anzahl Unterhalter:");
-		lblNewLabel_3.setBounds(10, 152, 100, 14);
+		lblNewLabel_3.setBounds(10, 152, 110, 14);
 		contentPane.add(lblNewLabel_3);
-
-		txt_UhaltAnzahl = new JTextField();
-		txt_UhaltAnzahl.setBounds(119, 149, 86, 20);
-		contentPane.add(txt_UhaltAnzahl);
-		txt_UhaltAnzahl.setColumns(10);
-
-		txt_UhaltStil = new JTextField();
-		txt_UhaltStil.setToolTipText("Musikstil bzw. Genre");
-		txt_UhaltStil.setBounds(119, 180, 86, 20);
-		contentPane.add(txt_UhaltStil);
-		txt_UhaltStil.setColumns(10);
 
 		JLabel lblNewLabel_4 = new JLabel("Stil / Art:");
 		lblNewLabel_4.setBounds(10, 183, 73, 14);
 		contentPane.add(lblNewLabel_4);
 
+		JLabel lblNewLabel_5 = new JLabel("Preis:");
+		lblNewLabel_5.setHorizontalAlignment(SwingConstants.LEFT);
+		lblNewLabel_5.setBounds(10, 218, 99, 14);
+		contentPane.add(lblNewLabel_5);
+
+		// Datenfelder
+
+		txt_UhaltName = new JTextField();
+		txt_UhaltName.setBounds(139, 48, 285, 20);
+		contentPane.add(txt_UhaltName);
+		txt_UhaltName.setColumns(10);
+
+		txt_UhaltBeschreibung = new JTextField();
+		txt_UhaltBeschreibung.setBounds(139, 79, 285, 59);
+		contentPane.add(txt_UhaltBeschreibung);
+		txt_UhaltBeschreibung.setColumns(10);
+
+		txt_UhaltAnzahl = new JTextField();
+		txt_UhaltAnzahl.setBounds(139, 149, 86, 20);
+		contentPane.add(txt_UhaltAnzahl);
+		txt_UhaltAnzahl.setColumns(10);
+
+		txt_UhaltStil = new JTextField();
+		txt_UhaltStil.setToolTipText("Musikstil bzw. Genre");
+		txt_UhaltStil.setBounds(139, 180, 86, 20);
+		contentPane.add(txt_UhaltStil);
+		txt_UhaltStil.setColumns(10);
+
+		txt_UhaltPreis = new JTextField();
+		txt_UhaltPreis.setBounds(139, 215, 86, 20);
+		contentPane.add(txt_UhaltPreis);
+		txt_UhaltPreis.setColumns(10);
+
+		// Instanzierung der Controller-Klasse und Uebergabe GUI-Objekt sowie
+		// unterhaltungHandler
 		MyUhaltSpeichernActionListener btnSpeichernAC = new MyUhaltSpeichernActionListener(
 				this, unterhaltungHandler);
 
 		JButton btnUhaltSpeichern = new JButton("Angaben Speichern");
-		btnUhaltSpeichern.setBounds(163, 258, 125, 23);
+		btnUhaltSpeichern.setBounds(139, 258, 175, 23);
 		contentPane.add(btnUhaltSpeichern);
 		btnUhaltSpeichern.addActionListener(btnSpeichernAC);
-
-		JLabel lblNewLabel_5 = new JLabel("Preis:");
-		lblNewLabel_5.setHorizontalAlignment(SwingConstants.LEFT);
-		lblNewLabel_5.setBounds(10, 218, 46, 14);
-		contentPane.add(lblNewLabel_5);
-
-		txt_UhaltPreis = new JTextField();
-		txt_UhaltPreis.setBounds(119, 215, 86, 20);
-		contentPane.add(txt_UhaltPreis);
-		txt_UhaltPreis.setColumns(10);
 	}
 
+	// Getter-Methoden
 	public String getAnbieterName() {
 		return this.anbieter;
 	}

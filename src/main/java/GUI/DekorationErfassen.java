@@ -35,6 +35,7 @@ public class DekorationErfassen extends JFrame {
 	// anbieter
 	public DekorationErfassen(final IDekorationHandler dekorationHandler,
 			String anbieter) {
+		setTitle("\"BIG-EVENT  -  Dienstleistung Dekoration hinzuf\u00FCgen\"");
 		this.anbieter = anbieter;
 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -44,30 +45,38 @@ public class DekorationErfassen extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 
+		// Labels
+
 		JLabel lblNewLabel = new JLabel("Bitte Angaben zur Dekoration eingeben");
 		lblNewLabel.setBounds(10, 11, 228, 14);
 		contentPane.add(lblNewLabel);
 
 		JLabel lblName = new JLabel("Name:");
-		lblName.setBounds(10, 36, 46, 14);
+		lblName.setBounds(10, 36, 76, 14);
 		contentPane.add(lblName);
 
 		JLabel lblBeschreibung = new JLabel("Beschreibung:");
-		lblBeschreibung.setBounds(10, 61, 76, 14);
+		lblBeschreibung.setBounds(10, 73, 76, 14);
 		contentPane.add(lblBeschreibung);
 
+		JLabel lblNewLabel_1 = new JLabel("Preis:");
+		lblNewLabel_1.setBounds(10, 184, 72, 14);
+		contentPane.add(lblNewLabel_1);
+
+		// Datenfelder
+
 		txt_DekoName = new JTextField();
-		txt_DekoName.setBounds(92, 33, 290, 20);
+		txt_DekoName.setBounds(134, 33, 290, 20);
 		contentPane.add(txt_DekoName);
 		txt_DekoName.setColumns(10);
 
 		txt_DekoBeschreibung = new JTextField();
-		txt_DekoBeschreibung.setBounds(92, 58, 290, 58);
+		txt_DekoBeschreibung.setBounds(134, 70, 290, 58);
 		contentPane.add(txt_DekoBeschreibung);
 		txt_DekoBeschreibung.setColumns(10);
 
 		checkBoxDekoBlumen = new JCheckBox("Mit Blumen");
-		checkBoxDekoBlumen.setBounds(92, 123, 97, 23);
+		checkBoxDekoBlumen.setBounds(134, 141, 119, 23);
 		contentPane.add(checkBoxDekoBlumen);
 		// Um Zustandsänderung der Checkbox 'Blumen' auszulesen
 		checkBoxDekoBlumen.addItemListener(new ItemListener() {
@@ -78,12 +87,8 @@ public class DekorationErfassen extends JFrame {
 			}
 		});
 
-		JLabel lblNewLabel_1 = new JLabel("Preis:");
-		lblNewLabel_1.setBounds(10, 161, 46, 14);
-		contentPane.add(lblNewLabel_1);
-
 		txt_DekoPreis = new JTextField();
-		txt_DekoPreis.setBounds(92, 158, 86, 20);
+		txt_DekoPreis.setBounds(134, 181, 86, 20);
 		contentPane.add(txt_DekoPreis);
 		txt_DekoPreis.setColumns(10);
 
@@ -93,7 +98,7 @@ public class DekorationErfassen extends JFrame {
 				this, dekorationHandler);
 
 		JButton btnDekoSpeichern = new JButton("Angaben Speichern");
-		btnDekoSpeichern.setBounds(161, 228, 125, 23);
+		btnDekoSpeichern.setBounds(134, 228, 189, 23);
 		contentPane.add(btnDekoSpeichern);
 		btnDekoSpeichern.addActionListener(btnSpeichernAC);
 	}

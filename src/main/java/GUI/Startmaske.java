@@ -25,15 +25,6 @@ public class Startmaske extends JFrame {
 	private JComboBox<String> comboBox;
 
 	/**
-	 * Launch the application.
-	 */
-	/*
-	 * public static void main(String[] args) { EventQueue.invokeLater(new
-	 * Runnable() { public void run() { try { Startmaske frame = new
-	 * Startmaske(); frame.setVisible(true); } catch (Exception e) {
-	 * e.printStackTrace(); } } }); }
-	 */
-	/**
 	 * Create the frame.
 	 */
 	public Startmaske(final IAnbieterHandler anbHandler,
@@ -49,58 +40,17 @@ public class Startmaske extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 
+		// Labels
 		JLabel lblHauptauswahl = new JLabel("Hauptauswahl");
-		lblHauptauswahl.setBounds(46, 11, 82, 14);
+		lblHauptauswahl.setHorizontalAlignment(SwingConstants.CENTER);
+		lblHauptauswahl.setFont(new Font("Tahoma", Font.BOLD, 13));
+		lblHauptauswahl.setBounds(272, 11, 230, 23);
 		contentPane.add(lblHauptauswahl);
-
-		JButton btnAnbieterHinzufgen = new JButton("Anbieter hinzuf\u00FCgen");
-		btnAnbieterHinzufgen.setBounds(39, 46, 134, 23);
-		contentPane.add(btnAnbieterHinzufgen);
-
-		comboBox = new JComboBox<String>(sqlHandler.getAnbieter());
-		comboBox.setBounds(39, 110, 183, 23);
-		contentPane.add(comboBox);
 
 		JLabel lblBestehendenAnbieterWhlen = new JLabel(
 				"Bestehenden Anbieter w\u00E4hlen:");
 		lblBestehendenAnbieterWhlen.setBounds(39, 90, 183, 14);
 		contentPane.add(lblBestehendenAnbieterWhlen);
-
-		JButton btnNewUkunft = new JButton("Neue Unterkunft hinzuf\u00FCgen");
-		btnNewUkunft.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-			}
-		});
-		btnNewUkunft.setBounds(10, 166, 212, 33);
-		contentPane.add(btnNewUkunft);
-		// Button nur sichtbar wenn 'ComboBox' Anbieter Wert enthält
-		if (comboBox.getSelectedItem() == null) {
-			btnNewUkunft.setVisible(false);
-		} else {
-			btnNewUkunft.setVisible(true);
-		}
-		btnNewUkunft.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent ae) {
-				UnterkunftErfassen ukunftErfa = new UnterkunftErfassen(
-						ukunftHandler, comboBox.getSelectedItem().toString());
-				ukunftErfa.setVisible(true);
-			}
-		});
-		JButton btnNewDeko = new JButton("Neue Dekoration hinzuf\u00FCgen");
-		btnNewDeko.setBounds(10, 210, 212, 33);
-		contentPane.add(btnNewDeko);
-		btnNewDeko.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent ae) {
-				DekorationErfassen dekoErfa = new DekorationErfassen(
-						dekorationHandler, comboBox.getSelectedItem()
-								.toString());
-				dekoErfa.setVisible(true);
-			}
-		});
-
-		JButton btnNewUhalt = new JButton("Neue Unterhaltung hinzuf\u00FCgen");
-		btnNewUhalt.setBounds(10, 254, 212, 33);
-		contentPane.add(btnNewUhalt);
 
 		JLabel label = new JLabel("New label");
 		label.setIcon(new ImageIcon(Startmaske.class
@@ -118,6 +68,64 @@ public class Startmaske extends JFrame {
 		lblVersion.setFont(new Font("Tahoma", Font.PLAIN, 6));
 		lblVersion.setBounds(355, 295, 147, 14);
 		contentPane.add(lblVersion);
+
+		// Button 'Anbieter hinzufügen'
+		JButton btnAnbieterHinzufgen = new JButton("Anbieter hinzuf\u00FCgen");
+		btnAnbieterHinzufgen.setToolTipText("Neuen Anbieter erfassen");
+		btnAnbieterHinzufgen.setBounds(10, 46, 212, 33);
+		contentPane.add(btnAnbieterHinzufgen);
+		// Erfassungsformular 'AnbieterErfassen' öffnen
+		btnAnbieterHinzufgen.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent ae) {
+				AnbieterErfassen anbieterErfa = new AnbieterErfassen(anbHandler);
+				anbieterErfa.setVisible(true);
+			}
+		});
+		// ComboBox für Auswahl bestehende Anbieter
+		comboBox = new JComboBox<String>(sqlHandler.getAnbieter());
+		// zu Testzwecken, ob Buttons bei leerem ComboFeld nicht sichtbar sind
+		// comboBox = new JComboBox();
+		comboBox.setBounds(39, 110, 183, 23);
+		contentPane.add(comboBox);
+
+		// Buttons für neue Services
+		// Button 'neue Unterkunft hinzufügen'
+		JButton btnNewUkunft = new JButton("Neue Unterkunft hinzuf\u00FCgen");
+		btnNewUkunft.setToolTipText("Neuen Service 'Unterkunft' erfassen");
+		btnNewUkunft.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
+		btnNewUkunft.setBounds(10, 166, 212, 33);
+		contentPane.add(btnNewUkunft);
+		// Erfassungsformular 'UnterkunftErfassen' öffnen
+		btnNewUkunft.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent ae) {
+				UnterkunftErfassen ukunftErfa = new UnterkunftErfassen(
+						ukunftHandler, comboBox.getSelectedItem().toString());
+				ukunftErfa.setVisible(true);
+			}
+		});
+		// Button 'neue Dekoration hinzufügen'
+		JButton btnNewDeko = new JButton("Neue Dekoration hinzuf\u00FCgen");
+		btnNewDeko.setToolTipText("Neuen Service 'Dekoration' erfassen");
+		btnNewDeko.setBounds(10, 210, 212, 33);
+		contentPane.add(btnNewDeko);
+		// Erfassungsformular 'DekorationErfassen' öffnen
+		btnNewDeko.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent ae) {
+				DekorationErfassen dekoErfa = new DekorationErfassen(
+						dekorationHandler, comboBox.getSelectedItem()
+								.toString());
+				dekoErfa.setVisible(true);
+			}
+		});
+		// Button 'neue Unterhaltung hinzufügen'
+		JButton btnNewUhalt = new JButton("Neue Unterhaltung hinzuf\u00FCgen");
+		btnNewUhalt.setToolTipText("Neuen Service 'Unterhaltung' erfassen");
+		btnNewUhalt.setBounds(10, 254, 212, 33);
+		contentPane.add(btnNewUhalt);
+		// Erfassungsformular 'UnterhaltungErfassen' öffnen
 		btnNewUhalt.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent ae) {
 				UnterhaltungErfassen uhaltErfa = new UnterhaltungErfassen(
@@ -126,6 +134,18 @@ public class Startmaske extends JFrame {
 				uhaltErfa.setVisible(true);
 			}
 		});
+
+		// Button nur sichtbar wenn 'ComboBox' Anbieter Wert enthält
+		if (comboBox.getSelectedItem() == null) {
+			btnNewUkunft.setVisible(false);
+			btnNewDeko.setVisible(false);
+			btnNewUhalt.setVisible(false);
+		} else {
+			btnNewUkunft.setVisible(true);
+			btnNewDeko.setVisible(true);
+			btnNewUhalt.setVisible(true);
+		}
+
 	}
 
 }

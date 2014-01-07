@@ -1,7 +1,10 @@
 package DbConnect;
 
-import java.util.*;
-import java.io.*;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.Vector;
 
 public class EventManager {
 
@@ -9,24 +12,22 @@ public class EventManager {
 	public Vector<Event> getList() throws EventException {
 		return EventBroker.getInstance().getList();
 	}
-	
+
 	// Ein neues Event hinzufügen
-	public int insertEvent(Event e)
-		throws EventException {
-		return EventBroker.getInstance().insertEvent(e);
+	public int insertEvent(EventSQLHandler sqlHandler) throws EventException {
+		return EventBroker.getInstance().insertEvent(sqlhandler);
 	}
-	
+
 	// Ein Event ändern
-	public int updateEvent(Event e)
-		throws EventException {
+	public int updateEvent(Event e) throws EventException {
 		return EventBroker.getInstance().updateEvent(e);
 	}
-	
+
 	// Ein Event löschen
 	public int deleteEvent(int id) throws EventException {
 		return EventBroker.getInstance().deleteEvent(id);
 	}
-	
+
 	// Daten im CSV-Format expoertieren
 	public void export(File file) throws EventException {
 		try {
@@ -46,7 +47,7 @@ public class EventManager {
 			throw new EventException(ex.getMessage());
 		}
 	}
-	
+
 	// Anwendung beenden
 	public void exit() {
 		ConnectionManager.closeConnection();
