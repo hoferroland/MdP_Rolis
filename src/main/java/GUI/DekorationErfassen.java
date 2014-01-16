@@ -1,5 +1,7 @@
 package GUI;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 
@@ -34,11 +36,11 @@ public class DekorationErfassen extends JFrame {
 	// Konstruktor mit Uebergabe dekorationHandler und 'zugrundeliegender'
 	// anbieter
 	public DekorationErfassen(final IDekorationHandler dekorationHandler,
-			String anbieter) {
+			final String anbieter) {
 		setTitle("\"BIG-EVENT  -  Dienstleistung Dekoration hinzuf\u00FCgen\"");
 		this.anbieter = anbieter;
 
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -98,9 +100,21 @@ public class DekorationErfassen extends JFrame {
 				this, dekorationHandler);
 
 		JButton btnDekoSpeichern = new JButton("Angaben Speichern");
-		btnDekoSpeichern.setBounds(134, 228, 189, 23);
+		btnDekoSpeichern.setBounds(10, 228, 189, 23);
 		contentPane.add(btnDekoSpeichern);
 		btnDekoSpeichern.addActionListener(btnSpeichernAC);
+
+		JButton btnNewDeko = new JButton("Weitere Dekoration erfassen");
+		btnNewDeko.setBounds(209, 228, 215, 23);
+		contentPane.add(btnNewDeko);
+		btnNewDeko.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent ae) {
+				DekorationErfassen dekoErfa = new DekorationErfassen(
+						dekorationHandler, anbieter);
+
+				dekoErfa.setVisible(true);
+			}
+		});
 	}
 
 	// Getter-Methoden

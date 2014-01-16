@@ -1,6 +1,8 @@
 package GUI;
 
 import java.awt.Component;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 
@@ -41,11 +43,11 @@ public class UnterkunftErfassen extends JFrame {
 	 * Create the frame.
 	 */
 	public UnterkunftErfassen(final IUnterkunftHandler unterkunftHandler,
-			String anbieter) {
+			final String anbieter) {
 		this.anbieter = anbieter;
 
 		setTitle("\"BIG-EVENT  -  Dienstleistung Unterkunft hinzuf\u00FCgen\"");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 507, 441);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -168,9 +170,21 @@ public class UnterkunftErfassen extends JFrame {
 				this, unterkunftHandler);
 
 		JButton btnUkunftSpeichern = new JButton("Angaben Speichern");
-		btnUkunftSpeichern.setBounds(162, 369, 181, 23);
+		btnUkunftSpeichern.setBounds(10, 369, 181, 23);
 		contentPane.add(btnUkunftSpeichern);
 		btnUkunftSpeichern.addActionListener(btnSpeichernAC);
+
+		JButton btnNewUkunft = new JButton("Weitere Unterkunft erfassen");
+		btnNewUkunft.setBounds(261, 369, 208, 23);
+		contentPane.add(btnNewUkunft);
+		btnNewUkunft.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent ae) {
+				UnterkunftErfassen ukunftErfa = new UnterkunftErfassen(
+						unterkunftHandler, anbieter);
+
+				ukunftErfa.setVisible(true);
+			}
+		});
 	}
 
 	// Getter-Methoden

@@ -1,5 +1,8 @@
 package GUI;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -29,12 +32,12 @@ public class UnterhaltungErfassen extends JFrame {
 	 * Create the frame.
 	 */
 	public UnterhaltungErfassen(final IUnterhaltungHandler unterhaltungHandler,
-			String anbieter) {
+			final String anbieter) {
 		this.anbieter = anbieter;
 
 		setTitle("\"BIG-EVENT  -  Dienstleistung Unterhaltung hinzuf\u00FCgen\"");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 341);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		setBounds(100, 100, 463, 341);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -102,9 +105,21 @@ public class UnterhaltungErfassen extends JFrame {
 				this, unterhaltungHandler);
 
 		JButton btnUhaltSpeichern = new JButton("Angaben Speichern");
-		btnUhaltSpeichern.setBounds(139, 258, 175, 23);
+		btnUhaltSpeichern.setBounds(10, 269, 199, 23);
 		contentPane.add(btnUhaltSpeichern);
 		btnUhaltSpeichern.addActionListener(btnSpeichernAC);
+
+		JButton btnNewUhalt = new JButton("Weitere Unterhaltung erfassen");
+		btnNewUhalt.setBounds(219, 269, 218, 23);
+		contentPane.add(btnNewUhalt);
+		btnNewUhalt.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent ae) {
+				UnterhaltungErfassen uhaltErfa = new UnterhaltungErfassen(
+						unterhaltungHandler, anbieter);
+
+				uhaltErfa.setVisible(true);
+			}
+		});
 	}
 
 	// Getter-Methoden

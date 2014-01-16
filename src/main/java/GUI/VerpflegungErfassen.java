@@ -1,6 +1,8 @@
 package GUI;
 
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 
@@ -27,16 +29,17 @@ public class VerpflegungErfassen extends JFrame {
 	private Boolean bVerpfVegi = false;
 	JCheckBox checkVerpfAllergie;
 	private Boolean bVerpfAllergie = false;
+	private JButton btnNewVerpf;
 
 	/**
 	 * Create the frame.
 	 */
 	public VerpflegungErfassen(final IVerpflegungHandler verpflegungHandler,
-			String anbieter) {
+			final String anbieter) {
 		this.anbieter = anbieter;
 
 		setTitle("\"BIG-EVENT  -  Dienstleistung Verpflegung hinzuf\u00FCgen\"");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 450, 348);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -120,9 +123,22 @@ public class VerpflegungErfassen extends JFrame {
 				this, verpflegungHandler);
 
 		JButton btnVerpfSpeichern = new JButton("Angaben Speichern");
-		btnVerpfSpeichern.setBounds(130, 276, 192, 23);
+		btnVerpfSpeichern.setBounds(10, 276, 206, 23);
 		contentPane.add(btnVerpfSpeichern);
+
 		btnVerpfSpeichern.addActionListener(btnSpeichernAC);
+
+		btnNewVerpf = new JButton("Weitere Verpflegung erfassen");
+		btnNewVerpf.setBounds(226, 276, 208, 23);
+		contentPane.add(btnNewVerpf);
+		btnNewVerpf.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent ae) {
+				VerpflegungErfassen verpfErfa = new VerpflegungErfassen(
+						verpflegungHandler, anbieter);
+
+				verpfErfa.setVisible(true);
+			}
+		});
 	}
 
 	// Getter-Methoden

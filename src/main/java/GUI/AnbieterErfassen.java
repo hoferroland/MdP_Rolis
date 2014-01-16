@@ -1,6 +1,8 @@
 package GUI;
 
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -38,7 +40,8 @@ public class AnbieterErfassen extends JFrame {
 		setTitle("\"BIG-EVENT  -  Neuen Anbieter erfassen\"");
 		this.anbieterHandler = anbieterHandler;
 
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		// setDefault(CloseOperation(JFrame.));
 		setBounds(100, 100, 538, 406);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -139,11 +142,16 @@ public class AnbieterErfassen extends JFrame {
 		contentPane.add(btn_AnbSpeichern);
 		btn_AnbSpeichern.addActionListener(btnSpeichernAC);
 
-		JButton btn_AnbAbbrechen = new JButton("Aktion abbrechen");
-		btn_AnbAbbrechen.setToolTipText("Abbrechen");
-		btn_AnbAbbrechen.setBounds(283, 334, 123, 23);
-		contentPane.add(btn_AnbAbbrechen);
-		btn_AnbAbbrechen.setVisible(false); // noch nicht implementiert
+		JButton btnNewAnb = new JButton("Weiteren Anbieter erfassen");
+		btnNewAnb.setBounds(283, 334, 229, 23);
+		contentPane.add(btnNewAnb);
+		btnNewAnb.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent ae) {
+				AnbieterErfassen anbErfa = new AnbieterErfassen(anbieterHandler);
+
+				anbErfa.setVisible(true);
+			}
+		});
 
 	}
 

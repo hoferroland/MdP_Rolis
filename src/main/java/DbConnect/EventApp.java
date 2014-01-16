@@ -6,7 +6,7 @@ public class EventApp {
 	
 	public static void main(String[] args) throws EventException {
 		// TODO Auto-generated method stub
-		final EventManager manager = new EventManager();
+		final old_EventManager manager = new old_EventManager();
 		
 		// Prüfung ob Test-DB-Eintrag in Konsole angezeigt wird
 		manager.getList();
